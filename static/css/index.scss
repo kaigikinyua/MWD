@@ -1,0 +1,35 @@
+@import './global.scss';
+//landing
+.landing{
+    div.container{
+        text-align: center;
+    }
+}
+
+.player_form{
+    position: fixed;
+    display: none;
+    @include middle;
+    z-index: 11;
+    padding:10px;
+    min-width: 300px;
+    background:white;
+    border-radius: 10px;
+    text-align: center;
+    label{
+        font-size: 20px;
+    }
+}
+label{
+    display: block;
+    margin-bottom: 10px;
+}
+input.input{
+    display: block;
+    position: relative;
+    width: 90%;
+    padding:10px;
+    background:lightgray;
+    border-bottom: 1px solid lightseagreen;
+    @include center_h;
+}

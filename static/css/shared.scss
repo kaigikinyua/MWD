@@ -1,0 +1,70 @@
+@import './global.scss';
+
+*{
+    padding:0px;
+    margin:0px;
+}
+
+html{
+    overflow-x:hidden;
+}
+
+
+div.topnav{
+    position: fixed;
+    top:0px;left:0px;
+    width:100vw;
+    max-height: 100px;
+    padding: 10px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.full{
+    position: relative;
+    height: 100vh;
+}
+.container{
+    position: relative;
+    max-width: 70%;
+    @include middle;
+    padding:10px;
+}
+
+//cover
+div.cover{
+    position: fixed;
+    z-index: 10;
+    height:100%;
+    width:100%;
+    top:0px;
+    left:0px;
+    background:rgba(10,10,10,0.5);
+    display: none;
+}
+//inputs and buttons
+input,button,.button{
+    outline:none;
+    padding:10px;
+    border:none;
+    margin:10px 0px;
+}
+    //buttons
+    button.big,input.big{
+        position: relative;
+        width:90%;
+        font-size: 20px;
+    }
+
+
+
+//text elements
+    .title{
+        font-weight: lighter;
+        font-size: 25px;
+    }
+    .big_text{
+        font-weight: bolder;
+        font-size: 30px;
+    }

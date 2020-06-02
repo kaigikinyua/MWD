@@ -1,0 +1,23 @@
+//color_var,scree_sizes,layout_mixins,animation_mixins
+
+//colors
+
+
+//screen_sizes
+
+
+//layout_mixins
+    @mixin middle {
+        left:50%;top:50%;
+        transform: translate(-50%,-50%);
+    }
+    @mixin center_h {
+        left:50%;
+        transform: translateX(-50%);
+    }
+    @mixin center_v {
+        top:50%;
+        transform: translateY(-50%);
+    }
+
+//animation mixins

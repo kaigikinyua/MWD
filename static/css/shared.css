@@ -1,0 +1,72 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+div.topnav {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  max-height: 100px;
+  padding: 10px;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.full {
+  position: relative;
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  max-width: 70%;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 10px;
+}
+
+div.cover {
+  position: fixed;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background: rgba(10, 10, 10, 0.5);
+  display: none;
+}
+
+input, button, .button {
+  outline: none;
+  padding: 10px;
+  border: none;
+  margin: 10px 0px;
+}
+
+button.big, input.big {
+  position: relative;
+  width: 90%;
+  font-size: 20px;
+}
+
+.title {
+  font-weight: lighter;
+  font-size: 25px;
+}
+
+.big_text {
+  font-weight: bolder;
+  font-size: 30px;
+}
+/*# sourceMappingURL=shared.css.map */

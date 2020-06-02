@@ -1,0 +1,19 @@
+{
+  "name": "mwd",
+  "version": "1.0.0",
+  "description": "Online Chess",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaigikinyua/Security.git"
+  },
+  "author": "kaigikinyua",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kaigikinyua/Security/issues"
+  },
+  "homepage": "https://github.com/kaigikinyua/Security#readme"
+}

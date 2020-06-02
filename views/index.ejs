@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>M.W.D</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/shared.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/index.css">
+</head>
+<body>
+    <div class="topnav">
+        <div class="barner">
+            <h3 class="title">M.W.D</h3>
+        </div>
+        <div class="actions">
+            <button class="small">Theme</button>
+        </div>
+    </div>
+    <div class="full landing">
+        <div class="container">
+            <header>
+                <h3 class="big_text"><%= players%></h3>
+                <h2>members are online</h2>
+            </header>
+            <button onclick="join()" class="button big">Join</button>
+        </div>
+    </div>
+
+    <form class="player_form" id="player_form" action="/" method="POST">
+        <label for="playername">Your player name</label>
+        <input id="playername" type="text" name="playername" class="input" placeholder="Player name..."/>
+        <input class="button big" type="submit" value="Enter"/>
+    </form>
+    <div class="cover" onclick="clear()"></div>
+    <script>
+        var form=document.getElementById("player_form");
+        var cover=document.querySelector('.cover')
+        function join(){
+            cover.style.display="block";
+            form.style.display="block";
+        }
+        function clear(){
+            cover.style.display="none";
+            form.style.display="none";
+        }
+    </script>
+</body>
+</html>
