@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Players</title>
     <link rel="stylesheet" href="/static/css/shared.css">
+    <link rel="stylesheet" href="/static/css/players.css">
 </head>
 <body>
     <div class="topnav">
@@ -15,15 +16,18 @@
             <button>Theme</button>
         </div>
     </div>
-    <div class="players">
+    <div class="full players">
         <div class="container">
-            <% for (player in players){%>
-                <div class="player">
-                    <div class="avatar"><%=player[0]%></div>
-                    <div class="playername"><%=player%></div>
+            <% for (var i=0; i < players.length; i++ ){%>
+                <div class="player" onclick="sendRequest('<%=players[i].id%>')">
+                    <div class="avatar">
+                        <div class="let"> <%=players[i].name[0]%> </div>
+                    </div>
+                    <div class="playername"><%=players[i].name%></div>
                 </div>
-            <%}%>
+            <% } %>
         </div>
     </div>
+    <script defer src="/static/js/players.js"></script>
 </body>
 </html>

@@ -1,1 +1,38 @@
-/* No CSS *//*# sourceMappingURL=players.css.map */
+div.players div.container {
+  position: relative;
+  max-height: 90%;
+  overflow-y: scroll;
+}
+
+div.player {
+  position: relative;
+  margin: 10px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.player div.avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: purple;
+  color: white;
+  text-transform: uppercase;
+  font-family: monospace;
+  text-align: center;
+}
+
+div.player div.avatar div.let {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 20px;
+}
+
+div.player div.playername {
+  text-transform: capitalize;
+  padding: 10px;
+}
+/*# sourceMappingURL=players.css.map */
