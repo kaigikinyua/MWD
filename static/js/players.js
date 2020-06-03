@@ -1,5 +1,7 @@
+var socket=io.connect("http://localhost:4000")
+
 function sendRequest(playerID){
-    console.log(playerID)
+    socket.emit('playaganist',)
 }
 
 function receiveRequest(){

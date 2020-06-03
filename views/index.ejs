@@ -26,15 +26,67 @@
         </div>
     </div>
 
-    <form class="player_form" id="player_form" action="/" method="POST">
+    <div class="player_form" id="player_form">
         <label for="playername">Your player name</label>
         <input id="playername" type="text" name="playername" class="input" placeholder="Player name..."/>
-        <input class="button big" type="submit" value="Enter"/>
-    </form>
+        <button id="button" class="button big" disabled>Play</button>
+    </div>
     <div class="cover" onclick="clear()"></div>
-    <script>
+    <script >
+        //modules
+        
+
         var form=document.getElementById("player_form");
         var cover=document.querySelector('.cover')
+        var playernameInput=document.getElementById('playername')
+        var btn=document.getElementById("button")
+
+        var username=""
+        
+        playernameInput.addEventListener('keyup',(e)=>{
+            
+            var username=playernameInput.value
+            if(username.length>0){
+                btn.disabled=false
+            }else{
+                btn.disabled=true
+            }
+        })
+
+        btn.addEventListener('click',(e)=>{
+            var f_name=playernameInput.value
+            if(f_name.length>0){
+                //store the username in the IndexDb
+                console.log(f_name)
+                post({"playername":f_name},(data)=>{
+                    if(data.state=="success"){
+                        
+                        window.location.replace("http://localhost:4000/players")
+                    }
+                })
+            }else{
+                //emitt error
+                console.log("Fill the username")
+            }
+        })
+        
+        function post(dataToSend,callback){
+            fetch("http://localhost:4000/",{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({"playername":dataToSend.playername})
+            })
+            .then(response=>response.json())
+            .then(data=>callback(data))
+            .catch(error=>{
+                console.error("Error: "+error)
+                console.error("Could not send post request\n"+this.url+"\n"+dataToSend.playername)
+            })
+        }
+
+
         function join(){
             cover.style.display="block";
             form.style.display="block";
