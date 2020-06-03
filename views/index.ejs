@@ -60,7 +60,8 @@
                 console.log(f_name)
                 post({"playername":f_name},(data)=>{
                     if(data.state=="success"){
-                        
+                        localStorage.setItem("username",f_name)
+                        localStorage.setItem("id",data.id)              
                         window.location.replace("http://localhost:4000/players")
                     }
                 })

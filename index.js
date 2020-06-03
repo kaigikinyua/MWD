@@ -2,16 +2,22 @@ const express=require('express')
 //const bodyParser=require('bodyParser')
 const app=express()
 const http=require("http").Server(app)
-const io=require("socket.io")(http)
+const socket=require("socket.io");
 
 app.use('/static',express.static('./static'))
 //for html app.use(express.urlencoded())
 app.use(express.json())
 app.set('view engine','ejs')
+var server=app.listen(4000,()=>{
+	console.log("M.W.D listening on port 4000")
+})
+//soket.io server
+var io=socket(server)
 
 //var players=["one","two","three"]
 var players=[{"name":"Player one","id":10}]
 var rooms=[]
+var socketRooms=[]
 
 app.get('/',(req,res)=>{
 	res.render('index',{'players':players.length})
@@ -21,7 +27,7 @@ app.post('/',(req,res)=>{
 	var player_id=generateUniqPlayerID()
 	players.push({"name":new_player,"id":player_id})
 	rooms.push(player_id)
-	var response={"state":"success",players}
+	var response={"state":"success","id":player_id,players}
 	res.end(JSON.stringify(response))
 	//res.redirect('/players')
 })
@@ -33,9 +39,6 @@ app.get('/match/:userid',(req,res)=>{
 	res.render("arena")
 })
 //sockets
-app.listen(4000,()=>{
-	console.log("M.W.D listening on port 4000")
-})
 
 //utilities
 function generateUniqPlayerID(){
@@ -49,12 +52,22 @@ function generateUniqPlayerID(){
 	return id;
 }
 
-io.sockets.on('connection',(socket)=>{
+
+
+io.on('connection',(socket)=>{
 	//update the number on the index page
-	console.log("Users connected"+sockets.length)
+	console.log("User connected ")
+	//console.log(socket)
+	socket.on("online",(data)=>{
+		socket.join(data.id)
+	})
+
+
 	socket.on("playaganist",(data)=>{
 		var c_name=data.username
 		var room_id=data.roomID
+		socket.join(room_id)
+		console.log(data)
 		//take challangers name
 		//send the room a notification
 		socket.broadcast.to(room_id).emit("challange",c_name+" is challanging you")

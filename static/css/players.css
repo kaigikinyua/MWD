@@ -35,4 +35,18 @@ div.player div.playername {
   text-transform: capitalize;
   padding: 10px;
 }
+
+div.notification {
+  position: fixed;
+  display: none;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 12;
+  padding: 10px;
+  -webkit-box-shadow: 1px 1px 10px 10px rgba(10, 10, 10, 0.5);
+          box-shadow: 1px 1px 10px 10px rgba(10, 10, 10, 0.5);
+  background: white;
+}
 /*# sourceMappingURL=players.css.map */

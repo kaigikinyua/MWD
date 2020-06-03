@@ -32,3 +32,13 @@ div.player{
         padding:10px;
     }
 }
+
+div.notification{
+    position: fixed;
+    display: none;
+    @include middle;
+    z-index: 12;
+    padding:10px;
+    box-shadow: 1px 1px 10px 10px rgba(10,10,10,0.5);
+    background:white;
+}

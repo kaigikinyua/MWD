@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Players</title>
-    <script src="/static/js/socket.js"></script>
+    <script src="/static/js/socket.io.js"></script>
     <link rel="stylesheet" href="/static/css/shared.css">
     <link rel="stylesheet" href="/static/css/players.css">
 </head>
@@ -29,6 +29,15 @@
             <% } %>
         </div>
     </div>
+
+    <div class="notification" id="notification">
+        <div class="message" id="message"></div>
+        <div class="buttons">
+            <button class="accept">Accept</button>
+            <button class="reject" onclick="rejectRequest()">Reject</button>
+        </div>
+    </div>
+
     <script defer src="/static/js/players.js"></script>
 </body>
 </html>
