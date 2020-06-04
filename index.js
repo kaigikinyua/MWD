@@ -56,8 +56,13 @@ function generateUniqPlayerID(){
 
 io.on('connection',(socket)=>{
 	//update the number on the index page
-	console.log("User connected ")
-	//console.log(socket)
+	socket.on('updatenumber',(data)=>{
+		socket.emit("newnumbers",players.length)
+	})
+	socket.on("updateplayers",(data)=>{
+		socket.emit("currentplayers",{"players":players})
+	})
+
 	socket.on("online",(data)=>{
 		socket.join(data.id)
 	})

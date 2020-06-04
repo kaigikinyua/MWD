@@ -4,8 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>M.W.D</title>
-    <link type="text/css" rel="stylesheet" href="/static/css/shared.css">
-    <link type="text/css" rel="stylesheet" href="/static/css/index.css">
+    <script src="/static/js/socket.io.js"></script>
+    <link type="text/css" rel="stylesheet" href="/static/css/shared.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/index.css"/>
 </head>
 <body>
     <div class="topnav">
@@ -19,7 +20,7 @@
     <div class="full landing">
         <div class="container">
             <header>
-                <h3 class="big_text"><%= players%></h3>
+                <h3 class="big_text" id="numbers"><%= players%></h3>
                 <h2>members are online</h2>
             </header>
             <button onclick="join()" class="button big">Join</button>
@@ -33,18 +34,12 @@
     </div>
     <div class="cover" onclick="clear()"></div>
     <script >
-        //modules
-        
-
         var form=document.getElementById("player_form");
         var cover=document.querySelector('.cover')
         var playernameInput=document.getElementById('playername')
         var btn=document.getElementById("button")
-
         var username=""
-        
         playernameInput.addEventListener('keyup',(e)=>{
-            
             var username=playernameInput.value
             if(username.length>0){
                 btn.disabled=false
@@ -52,7 +47,6 @@
                 btn.disabled=true
             }
         })
-
         btn.addEventListener('click',(e)=>{
             var f_name=playernameInput.value
             if(f_name.length>0){
@@ -70,7 +64,6 @@
                 console.log("Fill the username")
             }
         })
-        
         function post(dataToSend,callback){
             fetch("http://localhost:4000/",{
                 method:'POST',
@@ -86,8 +79,6 @@
                 console.error("Could not send post request\n"+this.url+"\n"+dataToSend.playername)
             })
         }
-
-
         function join(){
             cover.style.display="block";
             form.style.display="block";
@@ -96,6 +87,14 @@
             cover.style.display="none";
             form.style.display="none";
         }
+        var socket=io.connect("http://localhost:4000")
+        setInterval(()=>{
+            socket.emit("updatenumber",null);
+        },5000)
+        socket.on("newnumbers",(data)=>{
+            var numbers=document.getElementById("numbers")
+            numbers.innerHTML=data;
+        })
     </script>
 </body>
 </html>
