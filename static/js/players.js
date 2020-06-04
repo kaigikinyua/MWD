@@ -33,6 +33,7 @@ socket.on("startmatch",(data)=>{
     }else{
         localStorage.setItem("pawn","o")
     }
+    localStorage.setItem("matchid",data.matchid)
     setTimeout(()=>{
         window.location.replace("http://localhost:4000/arena")
     },3000)
