@@ -1,0 +1,43 @@
+@import './global.scss';
+div.container{
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+    max-height: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+div.board{
+    position: relative;
+    @include middle;
+    max-width: 340px;
+    max-height: 340px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    button{
+        height:100px;
+        width:100px;
+        margin:5px;
+    }
+}
+
+div.chat{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    height: 80vh;
+    div.handle{
+        flex:1;
+        background:green;
+    }
+    div.messages{
+        flex:5;
+        background:blue;
+    }
+    div.input{
+        flex:1;
+        background:pink;
+    }
+}
+

@@ -34,7 +34,7 @@ app.post('/',(req,res)=>{
 app.get('/players',(req,res)=>{
 	res.render("players",{"players":players})
 });
-app.get('/match/:userid',(req,res)=>{
+app.get('/arena',(req,res)=>{
 	//add security measure to prevent hacking
 	res.render("arena")
 })
