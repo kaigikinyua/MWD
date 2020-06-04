@@ -16,11 +16,28 @@ function sendRequest(playerID){
     var username=localStorage.getItem('username')
     socket.emit('playaganist',{"username":username,"roomID":playerID})
 }
+function acceptRequest(){
+    socket.emit("acceptchallange",{"id":localStorage.getItem("id"),"username":localStorage.getItem("name")})
+}
+
+
+
 socket.on("challange",(data)=>{
     notification()
     var message=document.getElementById("message")
-    message.innerHTML=data
+    message.innerHTML=data.message
 })
+socket.on("startmatch",(data)=>{
+    if(data.matchid==localStorage.getItem("id")){
+        localStorage.setItem("pawn","x")
+    }else{
+        localStorage.setItem("pawn","o")
+    }
+    setTimeout(()=>{
+        window.location.replace("http://localhost:4000/arena")
+    },3000)
+})
+
 socket.on("currentplayers",(data)=>{
     console.log(data)
     var p=document.getElementById("players")

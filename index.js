@@ -75,6 +75,10 @@ io.on('connection',(socket)=>{
 		console.log(data)
 		//take challangers name
 		//send the room a notification
-		socket.broadcast.to(room_id).emit("challange",c_name+" is challanging you")
+		var message=c_name+" is challanging you"
+		socket.broadcast.to(room_id).emit("challange",{"message":message})
+	})
+	socket.on("acceptchallange",(data)=>{
+		io.in(data.id).emit("startmatch",{"matchid":data.id,"match_host":data.username})
 	})
 })

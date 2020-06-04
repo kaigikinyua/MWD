@@ -6,6 +6,7 @@
     <title>Arena|MWD</title>
     <link rel="stylesheet" href="/static/css/shared.css">
     <link rel="stylesheet" href="/static/css/arena.css">
+    <script src="/static/js/socket.io.js"></script>
 </head>
 <body>
     <div class="topnav">
@@ -18,16 +19,8 @@
     </div>
     <section class="full arena">
         <div class="container">
-            <div class="board">
-                <button class="box" data-btnNum="9"></button>
-                <button class="box" data-btnNum="8"></button>
-                <button class="box" data-btnNum="7"></button>
-                <button class="box" data-btnNum="6"></button>
-                <button class="box" data-btnNum="5"></button>
-                <button class="box" data-btnNum="4"></button>
-                <button class="box" data-btnNum="3"></button>
-                <button class="box" data-btnNum="2"></button>
-                <button class="box" data-btnNum="1"></button>
+            <div class="board" id="board">
+                <!--<button class="box" data-btnNum="9"></button>-->
             </div>
             <div class="chat">
                 <div class="handle">
@@ -41,5 +34,6 @@
             </div>
         </div>
     </section>
+    <script src="/static/js/arena.js"></script>
 </body>
 </html>
