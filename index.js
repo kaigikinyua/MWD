@@ -83,6 +83,7 @@ io.on('connection',(socket)=>{
 	})
 
 	socket.on("play",data=>{
+		console.log("player "+data.id+" played "+data.boxnum)
 		socket.broadcast.to(data.id).emit("oponent",{"played":data.boxnum})
 	})
 

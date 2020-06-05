@@ -6,25 +6,36 @@ const board=document.getElementById('board')
 var char=localStorage.getItem("pawn")
 var played=[]
 
-//setting up board
-for(var i=9;i>0;i--){
-    var button=document.createElement("button")
-    button.classList.add("box")
-    button.dataset.btnum=i
-    button.id=i
-    button.addEventListener("click",(e)=>{
-        //console.log(e.target.dataset.btnum)
-        play(e.target.dataset.btnum)
-    })
-    board.appendChild(button)
-}
+setUpBoard()
 
+//setting up board
+function setUpBoard(){
+    for(var i=9;i>0;i--){
+        var button=document.createElement("button")
+        button.classList.add("box")
+        button.dataset.btnum=i
+        button.id=i
+        button.addEventListener("click",(e)=>{
+            //console.log(e.target.dataset.btnum)
+            play(e.target.dataset.btnum)
+        })
+        board.appendChild(button)
+    }
+    socket.emit("online",{"id":localStorage.getItem("matchid")})
+    if(localStorage.getItem("matchid")==localStorage.getItem("id")){
+        myTurn()
+        console.log(localStorage.getItem("matchid"))
+        console.log(localStorage.getItem("id"))
+    }else{
+        oponentTurn()
+    }
+}
 function play(number){
     var button=document.getElementById(number)
     button.innerHTML=char
     button.disabled=true
     played.push(number)
-    if(true==checkBoard()){
+    if(matchEnded){
 
     }else{
         oponentTurn()
@@ -33,15 +44,33 @@ function play(number){
 }
 socket.on("oponent",(data)=>{
     played.push(data.played);
+    console.log(data.played)
+    var antiChar=""
+    if(char=="x"){
+        antiChar="o"
+    }else{
+        antiChar="x"
+    }
+    var btn=document.getElementById(data.played)
+    btn.innerHTML=antiChar
     myTurn();
 })
+
+function matchEnded(){
+    if(true==checkBoard()){
+        console.log("match won")
+        return true;
+    }
+    return false;
+}
 
 function myTurn(){
     var buttons=document.querySelectorAll(".box")
     buttons.forEach(button=>{
         played.forEach(p=>{
-            if(p==button){
+            if(p==button.id){
                 button.disabled=true
+                console.log("disabled"+p)
             }else{
                 button.disabled=false
             }
