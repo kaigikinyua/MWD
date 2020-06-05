@@ -81,4 +81,10 @@ io.on('connection',(socket)=>{
 	socket.on("acceptchallange",(data)=>{
 		io.in(data.id).emit("startmatch",{"matchid":data.id,"match_host":data.username})
 	})
+
+	socket.on("play",data=>{
+		socket.broadcast.to(data.id).emit("oponent",{"played":data.boxnum})
+	})
+
+
 })

@@ -24,26 +24,44 @@ function play(number){
     button.innerHTML=char
     button.disabled=true
     played.push(number)
-    checkBoard()
+    if(true==checkBoard()){
+
+    }else{
+        oponentTurn()
+        socket.emit("play",{"id":localStorage.getItem("matchid"),"boxnum":number})
+    }
 }
-socket.on("play",(data)=>{
+socket.on("oponent",(data)=>{
+    played.push(data.played);
     myTurn();
 })
 
 function myTurn(){
-
+    var buttons=document.querySelectorAll(".box")
+    buttons.forEach(button=>{
+        played.forEach(p=>{
+            if(p==button){
+                button.disabled=true
+            }else{
+                button.disabled=false
+            }
+        })
+    })
 }
 function oponentTurn(){
-
+    var buttons=document.querySelectorAll(".box")
+    buttons.forEach(button=>{
+        button.disabled=true
+    })
 }
 
 function checkBoard(){
-    //vertical check
-    verticalCheck()
-    //horizontal check
-    horizontalCheck()
-    //diagonal check
-    diagonal()
+    if(true==verticalCheck() || true==horizontalCheck() || true==diagonal()){
+        return true;
+    }else{
+        //check if tied:if so return tied
+        return false;
+    }
 }
 
 function verticalCheck(){
@@ -55,8 +73,10 @@ function verticalCheck(){
     colums.forEach(col=>{
         if(col!=false){
             console.log(col+" vertical")
+            return true;
         }
     })
+    return false;
 }
 
 function horizontalCheck(){
@@ -68,8 +88,10 @@ function horizontalCheck(){
     colums.forEach(col=>{
         if(col!=false){
             console.log(col+"horizontal")
+            return true;
         }
     })
+    return false;
 }
 
 function diagonal(){
@@ -80,8 +102,10 @@ function diagonal(){
     colums.forEach(col=>{
         if(col!=false){
             console.log(col+"diagnal")
+            return true;
         }
     })
+    return false;
 }
 
 
