@@ -35,47 +35,47 @@ function play(number){
     button.innerHTML=char
     button.disabled=true
     played.push(number)
-    if(matchEnded){
-
+    if(matchEnded()){
+        console.log("----match ended ----------")
+        oponentTurn()
+        socket.emit("play",{"id":localStorage.getItem("matchid"),"boxnum":number})
     }else{
         oponentTurn()
         socket.emit("play",{"id":localStorage.getItem("matchid"),"boxnum":number})
     }
 }
 socket.on("oponent",(data)=>{
-    played.push(data.played);
-    console.log(data.played)
-    var antiChar=""
-    if(char=="x"){
-        antiChar="o"
-    }else{
-        antiChar="x"
+        played.push(data.played);
+        //console.log(played)
+        var antiChar=""
+        if(char=="x"){antiChar="o"}
+        else{antiChar="x"}
+        var btn=document.getElementById(data.played)
+        btn.innerHTML=antiChar
+        if(matchEnded()){
+            console.log("----match ended ----------")
+            oponentTurn()
+        }
+        else{myTurn();}
     }
-    var btn=document.getElementById(data.played)
-    btn.innerHTML=antiChar
-    myTurn();
-})
-
-function matchEnded(){
-    if(true==checkBoard()){
-        console.log("match won")
-        return true;
-    }
-    return false;
-}
+);
 
 function myTurn(){
     var buttons=document.querySelectorAll(".box")
     buttons.forEach(button=>{
+        button.disabled=false
         played.forEach(p=>{
             if(p==button.id){
                 button.disabled=true
-                console.log("disabled"+p)
-            }else{
-                button.disabled=false
+               // console.log("disabled"+p)
             }
         })
     })
+    /*played.forEach(p=>{
+        console.log(played)
+        var b=document.getElementById(p)
+        b.disabled=true
+    })*/
 }
 function oponentTurn(){
     var buttons=document.querySelectorAll(".box")
@@ -84,12 +84,61 @@ function oponentTurn(){
     })
 }
 
-function checkBoard(){
-    if(true==verticalCheck() || true==horizontalCheck() || true==diagonal()){
+function endGame(message,mode){
+    console.log(message)
+}
+
+function  matchEnded() {
+    var match_ended=checkBoard()
+    if(match_ended!=false){
+        //FREEZE BOARD
+        oponentTurn()
+        
+        switch (match_ended) {
+            case "Tie":
+                endGame("Game Tied",2)
+                break;
+            case "Won":
+                endGame("You won!!!",0)
+                break;
+            case "Lost":
+                endGame("You lost",1)
+                break;
+        }
         return true;
+    }
+    return false;
+}
+
+function checkBoard(){
+    if(false!=verticalCheck() || false!=horizontalCheck() || false!=diagonal()){
+        var vert=verticalCheck()
+        var hor=horizontalCheck()
+        var diag=diagonal()
+        var check=[vert,hor,diag]
+        check.forEach(c=>{
+            if(c!=false){
+                return c
+            }
+        })
+    
     }else{
         //check if tied:if so return tied
-        return false;
+        var empty=false;
+        /*
+        var buttons=document.querySelectorAll(".box")
+        buttons.forEach(button=>{
+            if(button.innerHTML==null || button.innerHTML==undefined){
+                empty=true;
+            }
+        })*/
+        if(played.length==9){
+            console.log(played)
+            empty=false;
+            return "Tie";
+        }else{
+            return false;
+        }
     }
 }
 
@@ -102,7 +151,7 @@ function verticalCheck(){
     colums.forEach(col=>{
         if(col!=false){
             console.log(col+" vertical")
-            return true;
+            return col;
         }
     })
     return false;
@@ -117,7 +166,7 @@ function horizontalCheck(){
     colums.forEach(col=>{
         if(col!=false){
             console.log(col+"horizontal")
-            return true;
+            return col;
         }
     })
     return false;
@@ -131,7 +180,7 @@ function diagonal(){
     colums.forEach(col=>{
         if(col!=false){
             console.log(col+"diagnal")
-            return true;
+            return col;
         }
     })
     return false;
@@ -157,9 +206,9 @@ function tick_tack_toe(one,two,three){
 
 
     if(one.innerHTML==char && two.innerHTML==char && three.innerHTML==char){
-        return "You are the winner!!!";
+        return "Won";
     }else if(one.innerHTML==antiChar && two.innerHTML==antiChar && three.innerHTML==antiChar){
-        return "You lost :/";
+        return "Lost";
     }else{
         return false;
     }
