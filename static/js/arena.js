@@ -35,28 +35,19 @@ function play(number){
     button.innerHTML=char
     button.disabled=true
     played.push(number)
-    if(matchEnded()){
-        console.log("----match ended ----------")
-        oponentTurn()
-        socket.emit("play",{"id":localStorage.getItem("matchid"),"boxnum":number})
-    }else{
-        oponentTurn()
-        socket.emit("play",{"id":localStorage.getItem("matchid"),"boxnum":number})
-    }
+    socket.emit("play",{"id":localStorage.getItem("matchid"),"boxnum":number})
+    oponentTurn()
+    matchEnded()
 }
 socket.on("oponent",(data)=>{
         played.push(data.played);
-        //console.log(played)
         var antiChar=""
         if(char=="x"){antiChar="o"}
         else{antiChar="x"}
         var btn=document.getElementById(data.played)
         btn.innerHTML=antiChar
-        if(matchEnded()){
-            console.log("----match ended ----------")
-            oponentTurn()
-        }
-        else{myTurn();}
+        myTurn()
+        matchEnded()
     }
 );
 
@@ -67,15 +58,9 @@ function myTurn(){
         played.forEach(p=>{
             if(p==button.id){
                 button.disabled=true
-               // console.log("disabled"+p)
             }
         })
     })
-    /*played.forEach(p=>{
-        console.log(played)
-        var b=document.getElementById(p)
-        b.disabled=true
-    })*/
 }
 function oponentTurn(){
     var buttons=document.querySelectorAll(".box")
@@ -91,9 +76,8 @@ function endGame(message,mode){
 function  matchEnded() {
     var match_ended=checkBoard()
     if(match_ended!=false){
-        //FREEZE BOARD
+        console.log("Match__ended")
         oponentTurn()
-        
         switch (match_ended) {
             case "Tie":
                 endGame("Game Tied",2)
@@ -121,25 +105,12 @@ function checkBoard(){
                 return c
             }
         })
-    
     }else{
-        //check if tied:if so return tied
-        var empty=false;
-        /*
-        var buttons=document.querySelectorAll(".box")
-        buttons.forEach(button=>{
-            if(button.innerHTML==null || button.innerHTML==undefined){
-                empty=true;
-            }
-        })*/
         if(played.length==9){
-            console.log(played)
-            empty=false;
             return "Tie";
-        }else{
-            return false;
         }
     }
+    return false;
 }
 
 function verticalCheck(){
@@ -165,7 +136,7 @@ function horizontalCheck(){
     var colums=[col1,col2,col3]
     colums.forEach(col=>{
         if(col!=false){
-            console.log(col+"horizontal")
+            console.log(col+" horizontal")
             return col;
         }
     })
@@ -179,7 +150,7 @@ function diagonal(){
     var colums=[col1,col2]
     colums.forEach(col=>{
         if(col!=false){
-            console.log(col+"diagnal")
+            console.log(col+" diagnal")
             return col;
         }
     })
