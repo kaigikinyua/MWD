@@ -71,7 +71,23 @@ function oponentTurn(){
 }
 
 function endGame(message,mode){
-    console.log(message)
+    var message_board=document.createElement("div")
+    message_board.classList.add("endGame")
+    message_board.innerHTML=message
+    var color="";
+    switch (mode) {
+        case 0:
+            color="lightgreem"
+            break;
+        case 1:
+            color="cyan"
+            break;
+        case 2:
+            color="lightseagreen"
+            break;
+    }
+    message_board.style.color=color
+    board.appendChild(message_board)
 }
 
 function  matchEnded() {
