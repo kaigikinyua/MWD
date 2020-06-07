@@ -1,4 +1,3 @@
-
 var socket=io.connect("http://localhost:4000/")
 
 //board-data
@@ -24,12 +23,13 @@ function setUpBoard(){
     socket.emit("online",{"id":localStorage.getItem("matchid")})
     if(localStorage.getItem("matchid")==localStorage.getItem("id")){
         myTurn()
-        console.log(localStorage.getItem("matchid"))
-        console.log(localStorage.getItem("id"))
+        //console.log(localStorage.getItem("matchid"))
+        //console.log(localStorage.getItem("id"))
     }else{
         oponentTurn()
     }
 }
+
 function play(number){
     var button=document.getElementById(number)
     button.innerHTML=char
@@ -39,6 +39,7 @@ function play(number){
     oponentTurn()
     matchEnded()
 }
+//receiving oponents move
 socket.on("oponent",(data)=>{
         played.push(data.played);
         var antiChar=""
@@ -75,6 +76,7 @@ function endGame(message,mode){
 
 function  matchEnded() {
     var match_ended=checkBoard()
+    console.log(match_ended)
     if(match_ended!=false){
         console.log("Match__ended")
         oponentTurn()
@@ -95,16 +97,26 @@ function  matchEnded() {
 }
 
 function checkBoard(){
-    if(false!=verticalCheck() || false!=horizontalCheck() || false!=diagonal()){
+    var vert=verticalCheck()
+    var hor=horizontalCheck()
+    var diag=diagonal()
+    var check=[vert,hor,diag]
+    console.log(check)
+
+    if(vert!=false || hor!=false || diag!=false){
+        console.log("one side won")
         var vert=verticalCheck()
         var hor=horizontalCheck()
         var diag=diagonal()
         var check=[vert,hor,diag]
+        var side_won="";
         check.forEach(c=>{
             if(c!=false){
-                return c
+                console.log(c)
+                side_won=c
             }
         })
+        return side_won;
     }else{
         if(played.length==9){
             return "Tie";
@@ -113,19 +125,22 @@ function checkBoard(){
     return false;
 }
 
+
+//cheking if player has won
 function verticalCheck(){
     var buttons=document.querySelectorAll(".box")
     var col1=tick_tack_toe(buttons[8],buttons[5],buttons[2])
     var col2=tick_tack_toe(buttons[7],buttons[4],buttons[1])
     var col3=tick_tack_toe(buttons[6],buttons[3],buttons[0])
     var colums=[col1,col2,col3]
+    var end=false
     colums.forEach(col=>{
         if(col!=false){
             console.log(col+" vertical")
-            return col;
+            end=col
         }
     })
-    return false;
+    return end;
 }
 
 function horizontalCheck(){
@@ -134,13 +149,14 @@ function horizontalCheck(){
     var col2=tick_tack_toe(buttons[5],buttons[4],buttons[3])
     var col3=tick_tack_toe(buttons[2],buttons[1],buttons[0])
     var colums=[col1,col2,col3]
+    var end=false
     colums.forEach(col=>{
         if(col!=false){
             console.log(col+" horizontal")
-            return col;
+            end=col
         }
     })
-    return false;
+    return end;
 }
 
 function diagonal(){
@@ -148,18 +164,15 @@ function diagonal(){
     var col1=tick_tack_toe(buttons[8],buttons[4],buttons[0])
     var col2=tick_tack_toe(buttons[6],buttons[4],buttons[2])
     var colums=[col1,col2]
+    var end=false
     colums.forEach(col=>{
         if(col!=false){
-            console.log(col+" diagnal")
-            return col;
+            console.log(col+" diagonal")
+            end=col
         }
     })
-    return false;
+    return end;
 }
-
-
-
-
 
 function tick_tack_toe(one,two,three){
     var arr=[one,two,three]
@@ -174,8 +187,6 @@ function tick_tack_toe(one,two,three){
     }else{
         antiChar="x"
     }
-
-
     if(one.innerHTML==char && two.innerHTML==char && three.innerHTML==char){
         return "Won";
     }else if(one.innerHTML==antiChar && two.innerHTML==antiChar && three.innerHTML==antiChar){
