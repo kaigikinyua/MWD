@@ -56,6 +56,10 @@ function generateUniqPlayerID(){
 
 io.on('connection',(socket)=>{
 	//update the number on the index page
+	socket.on("disconnet",()=>{
+		socket.emit("newnumbers",players.length-1)
+	})
+
 	socket.on('updatenumber',(data)=>{
 		socket.emit("newnumbers",players.length)
 	})
@@ -87,5 +91,10 @@ io.on('connection',(socket)=>{
 		socket.broadcast.to(data.id).emit("oponent",{"played":data.boxnum})
 	})
 
+
+	//chat
+	socket.on("sendmessage",data=>{
+		socket.broadcast.to(data.id).emit("message",{"message":data.message})
+	})
 
 })

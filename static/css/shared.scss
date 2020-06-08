@@ -16,6 +16,8 @@
     --highlight_elem:var(--blue1);
     --hightlight_col:var(--white);
     --shadow:var(--shadow_black);
+    --nav_bg:var(white);
+    --nav_txt:var(--blue2);
 }
 .dark{
     --bg:var(--dark);
@@ -23,6 +25,8 @@
     --highlight_elem:var(--blue1);
     --highlight_col:var(white);
     --shadow:var(--shadow_blue);
+    --nav_bg:lighten(--dark,10%);
+    --nav_txt:var(white);
 }
 
 *{
@@ -42,14 +46,14 @@ div.topnav{
     top:0px;left:0px;
     width:100vw;
     z-index: 10;
-    max-height: 100px;
+    height: 40px;
     padding: 10px;
     text-align: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background:var(--bg);
+    background:var(--nav_bg);
     box-shadow: 1px 1px 10px 10px var(--shadow);
-    color:var(--text);
+    color:var(--nav_txt);
     transition: background 0.5s ease-in-out,color 1s ease-in-out;
 }
 
