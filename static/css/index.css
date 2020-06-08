@@ -1,3 +1,36 @@
+:root {
+  --white:whitesmoke;
+  --dark:#263238;
+  --blue1:#2979ff;
+  --blue2:#01579b;
+}
+
+:root {
+  --white:whitesmoke;
+  --dark:#263238;
+  --blue1:#2979ff;
+  --blue2:#01579b;
+}
+
+.light {
+  --bg:var(--white);
+  --text:var(--dark);
+  --highlight_elem:var(--blue1);
+  --hightlight_col:var(--white);
+}
+
+.dark {
+  --bg:var(--dark);
+  --text:var(--blue1);
+  --highlight_elem:var(--blue1);
+  --highlight_col:var(white);
+}
+
+.landing {
+  background: var(--bg);
+  color: var(--text);
+}
+
 .landing div.container {
   text-align: center;
 }
@@ -12,7 +45,8 @@
   z-index: 11;
   padding: 10px;
   min-width: 300px;
-  background: white;
+  background: var(--highlight_elem);
+  color: var(--highlight_col);
   border-radius: 10px;
   text-align: center;
 }
@@ -31,8 +65,8 @@ input.input {
   position: relative;
   width: 90%;
   padding: 10px;
-  background: lightgray;
-  border-bottom: 1px solid lightseagreen;
+  background: lightslategray;
+  border-bottom: 1px solid var(--blue2);
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);

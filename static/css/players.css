@@ -1,3 +1,10 @@
+:root {
+  --white:whitesmoke;
+  --dark:#263238;
+  --blue1:#2979ff;
+  --blue2:#01579b;
+}
+
 div.players div.container {
   position: relative;
   max-height: 90%;

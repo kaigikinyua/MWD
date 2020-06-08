@@ -1,5 +1,30 @@
 @import './global.scss';
 
+//color themes
+:root{
+    --white:whitesmoke;
+    --dark:#263238;
+    --blue1:#2979ff;
+    --blue2:#01579b;
+    --shadow_black:rgba(10,10,10,0.5);
+    --shadow_blue:rgba(50,50,200,0.6);
+}
+
+.light{
+    --bg:var(--white);
+    --text:var(--dark);
+    --highlight_elem:var(--blue1);
+    --hightlight_col:var(--white);
+    --shadow:var(--shadow_black);
+}
+.dark{
+    --bg:var(--dark);
+    --text:var(--blue1);
+    --highlight_elem:var(--blue1);
+    --highlight_col:var(white);
+    --shadow:var(--shadow_blue);
+}
+
 *{
     padding:0px;
     margin:0px;
@@ -8,17 +33,24 @@
 html{
     overflow-x:hidden;
 }
-
+body{
+    background:var(--bg);
+}
 
 div.topnav{
     position: fixed;
     top:0px;left:0px;
     width:100vw;
+    z-index: 10;
     max-height: 100px;
     padding: 10px;
     text-align: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    background:var(--bg);
+    box-shadow: 1px 1px 10px 10px var(--shadow);
+    color:var(--text);
+    transition: background 0.5s ease-in-out,color 1s ease-in-out;
 }
 
 .full{
@@ -49,6 +81,8 @@ input,button,.button{
     padding:10px;
     border:none;
     margin:10px 0px;
+    background: var(--highlight_elem);
+    color:var(--white);
 }
     //buttons
     button.big,input.big{

@@ -1,3 +1,10 @@
+:root {
+  --white:whitesmoke;
+  --dark:#263238;
+  --blue1:#2979ff;
+  --blue2:#01579b;
+}
+
 div.container {
   position: relative;
   width: 100vw;
@@ -61,5 +68,13 @@ div.chat div.input {
       -ms-flex: 1;
           flex: 1;
   background: pink;
+}
+
+div.endGame {
+  position: absolute;
+  font-size: 20px;
+  height: 100%;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.7);
 }
 /*# sourceMappingURL=arena.css.map */
