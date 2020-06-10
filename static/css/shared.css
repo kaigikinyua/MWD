@@ -31,7 +31,7 @@
   --highlight_col:var(white);
   --shadow:var(--shadow_blue);
   --nav_bg:lighten(--dark,10%);
-  --nav_txt:var(white);
+  --nav_txt:var(--white);
 }
 
 * {
@@ -97,10 +97,15 @@ div.cover {
 input, button, .button {
   outline: none;
   padding: 10px;
-  border: none;
+  border: 1px solid var(--shadow);
   margin: 10px 0px;
   background: var(--highlight_elem);
   color: var(--white);
+}
+
+button:disabled {
+  background: var(--dark);
+  color: white;
 }
 
 button.big, input.big {

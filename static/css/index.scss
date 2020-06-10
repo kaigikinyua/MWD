@@ -12,22 +12,24 @@
     --text:var(--dark);
     --highlight_elem:var(--blue1);
     --hightlight_col:var(--white);
+    --input:lightgray;
+    --input_text:var(--dark);
 }
 .dark{
     --bg:var(--dark);
     --text:var(--blue1);
     --highlight_elem:var(--blue1);
     --highlight_col:var(white);
+    --input:var(--blue2);
+    --input_text:var(--dark);
 }
-
-
-
 //landing
 .landing{
     background: var(--bg);
     color:var(--text);
     div.container{
         text-align: center;
+        max-width: 400px;
     }
 }
 
@@ -39,7 +41,7 @@
     padding:10px;
     min-width: 300px;
     background:var(--highlight_elem);
-    color:var(--highlight_col);
+    color:var(--white);
     border-radius: 10px;
     text-align: center;
     label{
@@ -55,7 +57,11 @@ input.input{
     position: relative;
     width: 90%;
     padding:10px;
-    background:lightslategray;
+    background:var(--input);
+    color:var(--input_text);
     border-bottom: 1px solid var(--blue2);
     @include center_h;
+}
+input.input::placeholder{
+    color:var(--input_text);
 }

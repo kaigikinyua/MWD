@@ -11,7 +11,7 @@ window.onload=()=>{
 }
 
 function loadTheme(){
-    var elements=['.topnav','.landing','.player_form','.input','body']
+    var elements=['.topnav','.landing','.player_form','.input','body','input']
     elements.forEach(elem=>{
         var e=document.querySelectorAll(elem)
         e.forEach(elemClass=>{

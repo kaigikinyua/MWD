@@ -40,7 +40,7 @@ socket.on("startmatch",(data)=>{
 })
 
 socket.on("currentplayers",(data)=>{
-    console.log(data)
+    //console.log(data)
     var p=document.getElementById("players")
     p.innerHTML=""
     data.players.forEach(player => {
@@ -51,6 +51,7 @@ socket.on("currentplayers",(data)=>{
         playerTemplate.classList.add("player")
         var avatar=document.createElement("div")
         avatar.classList.add("avatar")
+        avatar.style.background=generateColors();
         avatar.innerHTML="<div class='let'>"+player.name[0]+"</div>"
         var playersname=document.createElement("div")
         playersname.classList.add("playername")
@@ -61,10 +62,13 @@ socket.on("currentplayers",(data)=>{
     });
 })
 
-
-function receiveRequest(){
-    
+function generateColors(){
+    var colors=['lightseagreen','orange','crimson','#2f3542','#212121','#2979ff','#01579b','#00c853','orange','#78909c'];
+    var index=Math.floor(Math.random(10)*10);
+    return colors[index];
 }
+
+
 function rejectRequest(){
     ignoreNotif()
 }

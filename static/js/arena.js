@@ -77,7 +77,7 @@ function endGame(message,mode){
     var color="";
     switch (mode) {
         case 0:
-            color="lightgreem"
+            color="lightgreen"
             break;
         case 1:
             color="cyan"

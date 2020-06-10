@@ -5,6 +5,33 @@
   --blue2:#01579b;
 }
 
+:root {
+  --white:whitesmoke;
+  --dark:#263238;
+  --blue1:#2979ff;
+  --blue2:#01579b;
+}
+
+.light {
+  --bg:var(--white);
+  --text:var(--dark);
+  --highlight_elem:var(--blue1);
+  --hightlight_col:var(--white);
+  --input:lightgray;
+  --input_text:var(--dark);
+  --highlight_text:var(--blue1);
+}
+
+.dark {
+  --bg:var(--dark);
+  --text:var(--blue1);
+  --highlight_elem:var(--blue1);
+  --highlight_col:var(white);
+  --input:var(--blue2);
+  --input_text:var(--dark);
+  --highlight_text:white;
+}
+
 div.players div.container {
   position: relative;
   max-height: 90%;
@@ -41,6 +68,7 @@ div.player div.avatar div.let {
 div.player div.playername {
   text-transform: capitalize;
   padding: 10px;
+  color: var(--highlight_text);
 }
 
 div.notification {

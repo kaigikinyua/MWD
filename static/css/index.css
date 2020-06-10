@@ -17,6 +17,8 @@
   --text:var(--dark);
   --highlight_elem:var(--blue1);
   --hightlight_col:var(--white);
+  --input:lightgray;
+  --input_text:var(--dark);
 }
 
 .dark {
@@ -24,6 +26,8 @@
   --text:var(--blue1);
   --highlight_elem:var(--blue1);
   --highlight_col:var(white);
+  --input:var(--blue2);
+  --input_text:var(--dark);
 }
 
 .landing {
@@ -33,6 +37,7 @@
 
 .landing div.container {
   text-align: center;
+  max-width: 400px;
 }
 
 .player_form {
@@ -46,7 +51,7 @@
   padding: 10px;
   min-width: 300px;
   background: var(--highlight_elem);
-  color: var(--highlight_col);
+  color: var(--white);
   border-radius: 10px;
   text-align: center;
 }
@@ -65,10 +70,27 @@ input.input {
   position: relative;
   width: 90%;
   padding: 10px;
-  background: lightslategray;
+  background: var(--input);
+  color: var(--input_text);
   border-bottom: 1px solid var(--blue2);
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+}
+
+input.input::-webkit-input-placeholder {
+  color: var(--input_text);
+}
+
+input.input:-ms-input-placeholder {
+  color: var(--input_text);
+}
+
+input.input::-ms-input-placeholder {
+  color: var(--input_text);
+}
+
+input.input::placeholder {
+  color: var(--input_text);
 }
 /*# sourceMappingURL=index.css.map */
