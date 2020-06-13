@@ -15,6 +15,11 @@ function loadTheme(){
     elements.forEach(elem=>{
         var e=document.querySelectorAll(elem)
         e.forEach(elemClass=>{
+            if(theme=="dark"){
+                elemClass.classList.remove("light")
+            }else{
+                elemClass.classList.remove("dark")
+            }
             elemClass.classList.add(theme)
         });
     });
@@ -29,10 +34,7 @@ function switchTheme(){
     }else{
         swithced_theme="dark"
     }
-    var elements=document.querySelectorAll("."+theme)
-    elements.forEach(elem=>{
-        elem.classList.remove(theme)
-        elem.classList.add(swithced_theme)
-    });
     localStorage.setItem("theme",swithced_theme)
+    theme=swithced_theme
+    loadTheme()
 }

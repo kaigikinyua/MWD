@@ -5,6 +5,31 @@
   --blue2:#01579b;
 }
 
+:root {
+  --white:whitesmoke;
+  --dark:#263238;
+  --blue1:#2979ff;
+  --blue2:#01579b;
+}
+
+.light {
+  --bg:var(--white);
+  --text:var(--dark);
+  --highlight_elem:var(--blue1);
+  --hightlight_col:var(--white);
+  --input:lightgray;
+  --input_text:var(--dark);
+}
+
+.dark {
+  --bg:var(--dark);
+  --text:var(--blue1);
+  --highlight_elem:var(--blue1);
+  --highlight_col:var(white);
+  --input:var(--blue2);
+  --input_text:var(--dark);
+}
+
 div.container {
   position: relative;
   width: 100vw;
@@ -37,6 +62,18 @@ div.board button {
   font-size: 50px;
 }
 
+div.endGame {
+  position: absolute;
+  font-size: 50px;
+  text-align: center;
+  padding-top: 50px;
+  height: 100%;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.7);
+  font-family: monospace;
+  letter-spacing: 2px;
+}
+
 div.chat {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -47,36 +84,58 @@ div.chat {
           flex-direction: column;
   max-width: 400px;
   height: 80vh;
+  border: 1px solid var(--text);
 }
 
 div.chat div.handle {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  background: green;
+  background: var(--input);
 }
 
 div.chat div.messages {
   -webkit-box-flex: 5;
       -ms-flex: 5;
           flex: 5;
-  background: blue;
+  background: var(--bg);
 }
 
 div.chat div.input {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  background: pink;
+  background: var(--input);
+  text-align: center;
 }
 
-div.endGame {
-  position: absolute;
-  font-size: 50px;
-  text-align: center;
-  padding-top: 50px;
-  height: 100%;
-  width: 100%;
-  background: rgba(10, 10, 10, 0.7);
+input.input, button.send {
+  padding: 10px 5px;
+  border: 1px solid transparent;
+}
+
+input.input {
+  background: var(--bg);
+  color: var(--text);
+}
+
+input.input::-webkit-input-placeholder {
+  color: var(--text);
+}
+
+input.input:-ms-input-placeholder {
+  color: var(--text);
+}
+
+input.input::-ms-input-placeholder {
+  color: var(--text);
+}
+
+input.input::placeholder {
+  color: var(--text);
+}
+
+button.send {
+  background: var(--highlight_elem);
 }
 /*# sourceMappingURL=arena.css.map */
