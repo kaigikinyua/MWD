@@ -58,11 +58,14 @@ div.endGame{
 }
 
 div.chat{
+    position: relative;
     display: flex;
     flex-direction: column;
     max-width: 400px;
     height: 80vh;
-    border:1px solid var(--text);
+    margin-top:20px;
+    border-left:1px solid var(--text);
+    border-right:1px solid var(--text);
     div.handle{
         flex:1;
         background:var(--input);
@@ -125,5 +128,21 @@ div.messages{
         border-bottom-right-radius: 10px;
         text-align: left;
         display: inline;
+    }
+}
+
+
+
+@media only screen and (max-width:800px){
+    div.container{
+        display: block;
+        height:100vh;
+    }
+    div.board{
+        @include center_h;
+        top:0px;
+    }
+    div.chat{
+        @include center_h;
     }
 }

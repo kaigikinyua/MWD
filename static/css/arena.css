@@ -75,6 +75,7 @@ div.endGame {
 }
 
 div.chat {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -84,7 +85,9 @@ div.chat {
           flex-direction: column;
   max-width: 400px;
   height: 80vh;
-  border: 1px solid var(--text);
+  margin-top: 20px;
+  border-left: 1px solid var(--text);
+  border-right: 1px solid var(--text);
 }
 
 div.chat div.handle {
@@ -180,5 +183,23 @@ div.messages .left {
   border-bottom-right-radius: 10px;
   text-align: left;
   display: inline;
+}
+
+@media only screen and (max-width: 800px) {
+  div.container {
+    display: block;
+    height: 100vh;
+  }
+  div.board {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    top: 0px;
+  }
+  div.chat {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
 }
 /*# sourceMappingURL=arena.css.map */
