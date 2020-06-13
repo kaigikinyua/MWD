@@ -6,8 +6,17 @@
     <title>M.W.D</title>
     <script src="/static/js/socket.io.js"></script>
     <script defer src="/static/js/UI.js"></script>
+    <link rel="shortcut icon" href="/static/images/icon_2.png" type="image/x-icon">
+
     <link type="text/css" rel="stylesheet" href="/static/css/shared.css"/>
     <link type="text/css" rel="stylesheet" href="/static/css/index.css"/>
+    <style lang="csss">
+        .landing{
+            background-image: url('/static/images/tic_tack_toe.png');
+            background-position: center;
+            background-size:center;
+        }
+    </style>
 </head>
 <body>
     <div class="topnav">
@@ -20,6 +29,7 @@
     </div>
     <div class="full landing">
         <div class="container">
+            <img src="/static/images/icon_2.png" height="100px" width="auto" alt="icon"/>
             <header>
                 <h3 class="big_text" id="numbers"><%= players%></h3>
                 <h2>members are online</h2>
@@ -35,6 +45,14 @@
     </div>
     <div class="cover" onclick="clear()"></div>
     <script >
+        setTimeout(()=>{
+            var d=document.querySelector("body");
+            console.log(d)
+            d.style.backgroundImage="/static/images/tic_tack_toe.png";
+            d.style.background="transparent";
+        },3000);
+
+
         var form=document.getElementById("player_form");
         var cover=document.querySelector('.cover')
         var playernameInput=document.getElementById('playername')

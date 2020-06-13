@@ -16,7 +16,7 @@
     --highlight_elem:var(--blue1);
     --hightlight_col:var(--white);
     --shadow:var(--shadow_black);
-    --nav_bg:var(white);
+    --nav_bg:var(--white);
     --nav_txt:var(--blue2);
 }
 .dark{
@@ -25,7 +25,7 @@
     --highlight_elem:var(--blue1);
     --highlight_col:var(white);
     --shadow:var(--shadow_blue);
-    --nav_bg:lighten(--dark,10%);
+    --nav_bg:var(--dark);
     --nav_txt:var(--white);
 }
 
@@ -66,6 +66,8 @@ div.topnav{
     max-width: 70%;
     @include middle;
     padding:10px;
+    background: var(--nav_bg);
+    box-shadow: 1px 1px 10px 3px var(--dark);
 }
 
 //cover
