@@ -93,7 +93,16 @@ io.on('connection',(socket)=>{
 
 
 	//chat
+
+	socket.on("typing",data=>{
+		console.log(data)
+		console.log(" is typing")
+		socket.broadcast.to(data.id).emit("typing",{"username":data.username})
+	})
+
+
 	socket.on("sendmessage",data=>{
+		console.log(data)
 		socket.broadcast.to(data.id).emit("message",{"message":data.message})
 	})
 

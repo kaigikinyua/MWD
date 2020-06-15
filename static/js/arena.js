@@ -140,8 +140,6 @@ function checkBoard(){
     }
     return false;
 }
-
-
 //cheking if player has won
 function verticalCheck(){
     var buttons=document.querySelectorAll(".box")
@@ -211,3 +209,40 @@ function tick_tack_toe(one,two,three){
         return false;
     }
 }
+
+
+
+//messaging
+var input=document.getElementById("input")
+input.addEventListener('keydown',(e)=>{
+    socket.emit("typing",{"id":localStorage.getItem("matchid"),"username":localStorage.getItem("username")})
+})
+
+socket.on("typing",(data)=>{
+    var status=document.getElementById("status")
+    status.innerHTML=data.username+" is typing"
+})
+
+function sendMessage(){
+    var message=document.getElementById("input").value;
+    if(message.length>0){
+        socket.emit("sendmessage",{"id":localStorage.getItem("matchid"),"message":message})
+        var messages=document.getElementById("messages")
+        var newMessage=document.createElement("div")
+        newMessage.classList.add("message")
+        newMessage.classList.add("m_right")
+        newMessage.innerHTML="<div class='text_bubble right'>"+message+"</div>"
+        messages.appendChild(newMessage)
+        message.innerHTML=""
+    }
+}
+socket.on("message",(data)=>{
+    var messages=document.getElementById("messages")
+    var newMessage=document.createElement("div")
+    newMessage.classList.add("message")
+    newMessage.classList.add("m_left")
+    newMessage.innerHTML="<div class='text_bubble left'>"+data.message+"</div>"
+    messages.appendChild(newMessage)
+    var status=document.getElementById("status")
+    status.innerHTML=""
+})
