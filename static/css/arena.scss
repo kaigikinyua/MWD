@@ -140,9 +140,12 @@ div.messages{
     }
     div.board{
         @include center_h;
-        top:0px;
+        top:70px;
     }
     div.chat{
+        position: fixed;
         @include center_h;
+        bottom:-80%;
+        width:100vw;
     }
 }

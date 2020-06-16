@@ -12,9 +12,10 @@
     <link type="text/css" rel="stylesheet" href="/static/css/index.css"/>
     <style lang="csss">
         .landing{
-            background-image: url('/static/images/tic_tack_toe.png');
+            background-image: url('/static/images/tic_tac_toe_bg.png');
             background-position: center;
-            background-size:center;
+            background-size:cover;
+            background-repeat: no-repeat;
         }
     </style>
 </head>
@@ -46,9 +47,9 @@
     <div class="cover" onclick="clear()"></div>
     <script >
         setTimeout(()=>{
-            var d=document.querySelector("body");
+            var d=document.querySelector("section.landing");
             console.log(d)
-            d.style.backgroundImage="/static/images/tic_tack_toe.png";
+            d.style.backgroundImage="/static/images/tic_tack_toe_bg.png";
             d.style.background="transparent";
         },3000);
 

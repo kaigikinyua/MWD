@@ -20,7 +20,7 @@ function setUpBoard(){
         })
         board.appendChild(button)
     }
-    socket.emit("joinarena",{"id":localStorage.getItem("matchid")})
+    socket.emit("joinarena",{"id":localStorage.getItem("matchid"),"userid":localStorage.getItem("id"),"username":localStorage.getItem("username")})
     if(localStorage.getItem("matchid")==localStorage.getItem("id")){
         myTurn()
         //console.log(localStorage.getItem("matchid"))
@@ -29,6 +29,19 @@ function setUpBoard(){
         oponentTurn()
     }
 }
+
+function setUpData(oponentname,oponentid){
+    localStorage.setItem("oponentname",oponentname)
+    localStorage.setItem("oponentid",oponentid)
+    var oponent_name=document.getElementById("oponentname")
+    var username_dom=document.getElementById("username")
+
+    oponent_name.innerHTML=localStorage.getItem("oponentname")
+    username_dom.innerHTML=localStorage.getItem("username")
+    console.log("setting up arena data")
+}
+
+
 
 function play(number){
     var button=document.getElementById(number)
@@ -51,6 +64,11 @@ socket.on("oponent",(data)=>{
         matchEnded()
     }
 );
+socket.on("arenadata",(data)=>{
+    //localStorage.setItem("oponentname",data.oponentname)
+    //localStorage.setItem("oponentid",data.oponentid)
+    setUpData(data.oponentname,data.oponentid)
+})
 
 function myTurn(){
     var buttons=document.querySelectorAll(".box")

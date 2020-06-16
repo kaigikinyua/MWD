@@ -194,12 +194,15 @@ div.messages .left {
     left: 50%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
-    top: 0px;
+    top: 70px;
   }
   div.chat {
+    position: fixed;
     left: 50%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
+    bottom: -80%;
+    width: 100vw;
   }
 }
 /*# sourceMappingURL=arena.css.map */

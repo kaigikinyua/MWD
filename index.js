@@ -97,6 +97,10 @@ io.on('connection',(socket)=>{
 	})
 	socket.on("joinarena",(data)=>{
 		socket.join(data.id)
+		//io.in(data.id).emit("arenadata",{"matchid":data.id,"match_host":data.username})
+		socket.broadcast.to(data.id).emit("arenadata",{"oponentname":data.username,"oponentid":data.id})
+		console.log("oponent data")
+		console.log(data)
 	})
 
 	socket.on("playaganist",(data)=>{
