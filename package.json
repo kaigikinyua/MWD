@@ -4,7 +4,8 @@
   "description": "Online Tic Tac Toe",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"index.js"
   },
   "repository": {
     "type": "git",
@@ -12,6 +13,16 @@
   },
   "author": "kaigikinyua",
   "license": "MIT",
+
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io":"^2.3.0",
+    "ejs":"^3.0.1"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+
   "bugs": {
     "url": "https://github.com/kaigikinyua/Security/issues"
   },

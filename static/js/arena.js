@@ -20,7 +20,7 @@ function setUpBoard(){
         })
         board.appendChild(button)
     }
-    socket.emit("online",{"id":localStorage.getItem("matchid")})
+    socket.emit("joinarena",{"id":localStorage.getItem("matchid")})
     if(localStorage.getItem("matchid")==localStorage.getItem("id")){
         myTurn()
         //console.log(localStorage.getItem("matchid"))

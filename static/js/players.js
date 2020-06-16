@@ -1,23 +1,30 @@
 //import io from "./socket.js";
 var socket=io.connect("http://localhost:4000/")
+var challanger_id=""
 
-initChannel()
+window.onload=function(){
+    var id=localStorage.getItem("id")
+    socket.emit("updateplayers",{"id":id})
+    initChannel()
+}
+
 
 function initChannel(){
     var id=localStorage.getItem("id")
     socket.emit("online",{"id":id})
     setInterval(()=>{
-        socket.emit("updateplayers",null)
+        socket.emit("updateplayers",{"id":id})
+        console.log("updating players")
     },10000)
 }
 
 
 function sendRequest(playerID){
     var username=localStorage.getItem('username')
-    socket.emit('playaganist',{"username":username,"roomID":playerID})
+    socket.emit('playaganist',{"username":username,"playerID":localStorage.getItem("id"),"roomID":playerID})
 }
 function acceptRequest(){
-    socket.emit("acceptchallange",{"id":localStorage.getItem("id"),"username":localStorage.getItem("name")})
+    socket.emit("acceptchallange",{"id":localStorage.getItem("id"),"username":localStorage.getItem("name"),"c_id":challanger_id})
 }
 
 
@@ -26,6 +33,7 @@ socket.on("challange",(data)=>{
     notification()
     var message=document.getElementById("message")
     message.innerHTML=data.message
+    challanger_id=data.c_id
 })
 socket.on("startmatch",(data)=>{
     if(data.matchid==localStorage.getItem("id")){

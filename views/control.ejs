@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Control</title>
+    <link rel="stylesheet" href="/static/css/shared.css"/>
+    <link rel="stylesheet" href="/static/css/control.css">
+</head>
+<body>
+    <div class="topnav">
+        <div class="barner">
+            <h3 class="title">MWD | Control</h3>
+        </div>
+        <div class="links"></div>
+    </div>
+    <section class="full control">
+        <div class="container">
+            <div class="onlineplayers">
+                <h2 class="header">Players online</h2>
+                <h2 class="number" id="onlineplayers">1004</h2>
+            </div>
+            <div class="matches">
+                <h2 class="header">Matches Ongoing</h2>
+                <h2 class="number" id="matchesongoing">200</h2>
+            </div>
+            <div class="players">
+                <h2 class="header">Players</h2>
+                <div class="playersList" id="playersList">
+                    <script>
+                        var players=['James','John','Hydrogen','OxyGen','Chrome','Firefox','Android','Ubuntu','Windows','Bond','Killer'];
+                        var playersList=document.getElementById("playersList")
+                        players.forEach((player)=>{
+                            var pTemplate=document.createElement("div")
+                            pTemplate.classList.add("player")
+                            pTemplate.innerHTML="<div class='avatar'>"+player[0]+"</div><div class='playername'>"+player+"</div>"
+                            playersList.appendChild(pTemplate)
+                        })    
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
