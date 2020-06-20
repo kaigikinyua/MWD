@@ -68,6 +68,30 @@ div.notification{
     @include middle;
     z-index: 12;
     padding:10px;
-    box-shadow: 1px 1px 10px 10px rgba(10,10,10,0.5);
+    box-shadow: 5px 5px 50px 50px rgba(10,10,10,0.2);
     background:white;
+    text-align: center;
+    border-radius: 10px;
+    div.message{
+        padding:20px;
+        font-size: 20px;
+        font-weight: bolder;
+        color:#2979ff;
+        text-align: center;
+    }
+    img{
+        position: relative;
+        height:auto;
+        width:100%;
+    }
+    button{
+        background:#2979ff;
+        color:white;
+        padding:10px 20px;
+        font-size: 20px;
+        margin:10px;
+    }
+    button.reject{
+        background:crimson;
+    }
 }

@@ -80,8 +80,36 @@ div.notification {
           transform: translate(-50%, -50%);
   z-index: 12;
   padding: 10px;
-  -webkit-box-shadow: 1px 1px 10px 10px rgba(10, 10, 10, 0.5);
-          box-shadow: 1px 1px 10px 10px rgba(10, 10, 10, 0.5);
+  -webkit-box-shadow: 5px 5px 50px 50px rgba(10, 10, 10, 0.2);
+          box-shadow: 5px 5px 50px 50px rgba(10, 10, 10, 0.2);
   background: white;
+  text-align: center;
+  border-radius: 10px;
+}
+
+div.notification div.message {
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: #2979ff;
+  text-align: center;
+}
+
+div.notification img {
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
+div.notification button {
+  background: #2979ff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 20px;
+  margin: 10px;
+}
+
+div.notification button.reject {
+  background: crimson;
 }
 /*# sourceMappingURL=players.css.map */

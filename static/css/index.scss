@@ -98,3 +98,20 @@ div.contacts{
         background-repeat: no-repeat;
     }
 }
+
+@media only screen and (max-width:500px){
+    div.contacts{
+        div.container{
+            min-width: 100%;
+            min-height: 90%;
+            padding:10px;
+            display: grid;
+            grid-template-rows: 1fr 2fr;
+            grid-template-columns: 1fr;
+            text-align: center;
+            table{
+                tr{text-align: center;}
+            }
+        }
+    }
+}

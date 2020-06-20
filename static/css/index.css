@@ -135,4 +135,22 @@ div.contacts div.img {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+@media only screen and (max-width: 500px) {
+  div.contacts div.container {
+    min-width: 100%;
+    min-height: 90%;
+    padding: 10px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: 1fr 2fr;
+        grid-template-rows: 1fr 2fr;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    text-align: center;
+  }
+  div.contacts div.container table tr {
+    text-align: center;
+  }
+}
 /*# sourceMappingURL=index.css.map */

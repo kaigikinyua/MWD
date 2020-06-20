@@ -40,9 +40,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="895.90406"
-     inkscape:cy="591.86521"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="1086.1026"
+     inkscape:cy="-149.79691"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
@@ -60,7 +60,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -96,15 +96,10 @@
        width="316.39752"
        id="rect892"
        style="opacity:1;fill:#00ffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <rect
+    <path
        style="opacity:1;fill:#333333;fill-opacity:1;stroke:#c87137;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect966"
-       width="322.31039"
-       height="381.83774"
-       x="673.69995"
-       y="873.92889"
-       rx="9.2358596e-06"
-       ry="48.432499" />
+       d="M 673.69922 873.92969 C 673.69921 873.92969 673.69922 895.52972 673.69922 922.36133 L 673.69922 1207.334 C 673.69922 1234.1656 673.69921 1255.7676 673.69922 1255.7676 L 816.20312 1255.7676 L 816.20312 1114.291 C 816.20312 1081.8632 826.56614 1055.7559 839.4375 1055.7559 C 852.30886 1055.7559 862.66992 1081.8632 862.66992 1114.291 L 862.66992 1255.7676 L 996.00977 1255.7676 C 996.00977 1255.7676 996.00977 1234.1656 996.00977 1207.334 L 996.00977 922.36133 C 996.00977 895.52972 996.00977 873.92969 996.00977 873.92969 L 673.69922 873.92969 z "
+       id="rect966" />
     <rect
        style="opacity:1;fill:#00ffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect850"
@@ -243,7 +238,7 @@
            height="131.42857"
            x="722.85712"
            y="708.57141" /></flowRegion><flowPara
-         id="flowPara954"></flowPara></flowRoot>    <text
+         id="flowPara954" /></flowRoot>    <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:148.1690979px;line-height:1.25;font-family:Scriptina;-inkscape-font-specification:'Scriptina, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.85211372"
        x="-132.63333"
@@ -267,15 +262,6 @@
        id="path964"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="csssccccssc" />
-    <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#c87137;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect968"
-       width="46.467018"
-       height="294.96454"
-       x="816.20325"
-       y="1055.7563"
-       rx="23.233509"
-       ry="58.534019" />
     <path
        style="fill:#ffffff;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:0.12"
        d="M 246.47722,484.01 577.80726,94.091116 1052.579,17.319523 1165.716,249.65461 494.97475,673.91868 492.95444,401.17749 Z"
