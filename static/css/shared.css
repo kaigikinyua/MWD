@@ -107,6 +107,7 @@ input, button, .button {
 }
 
 button:disabled {
+  opacity: 0.5;
   background: var(--dark);
   color: white;
 }

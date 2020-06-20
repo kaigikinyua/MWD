@@ -7,7 +7,7 @@
     <script src="/static/js/socket.io.js"></script>
     <script defer src="/static/js/UI.js"></script>
     <link rel="shortcut icon" href="/static/images/icon_2.png" type="image/x-icon">
-
+    <link rel="stylesheet" href="/static/css/all.min.css">
     <link type="text/css" rel="stylesheet" href="/static/css/shared.css"/>
     <link type="text/css" rel="stylesheet" href="/static/css/index.css"/>
     <style lang="csss">
@@ -16,6 +16,10 @@
             background-position: center;
             background-size:cover;
             background-repeat: no-repeat;
+        }
+        i.fa-times{
+            font-size: 30px;
+            color:crimson;
         }
     </style>
 </head>
@@ -40,17 +44,19 @@
     </div>
 
     <div class="player_form" id="player_form">
+        <img class="signup" src="/static/images/pencil.svg" height="200px" width="auto"/>
         <label for="playername">Your player name</label>
         <input id="playername" type="text" name="playername" class="input" placeholder="Player name..."/>
         <button id="button" class="button big" disabled>Play</button>
+        <br/><i onclick="formclear()" class="fa fa-times"></i><br/>
     </div>
-    <div class="cover" onclick="clear()"></div>
+    <div class="cover" onclick="formclear()"></div>
     <script >
         setTimeout(()=>{
             var d=document.querySelector("section.landing");
-            console.log(d)
-            d.style.backgroundImage="/static/images/tic_tack_toe_bg.png";
-            d.style.background="transparent";
+            //console.log(d)
+           // d.style.backgroundImage="/static/images/tic_tack_toe_bg.png";
+           // d.style.background="transparent";
         },3000);
 
 
@@ -103,7 +109,7 @@
             cover.style.display="block";
             form.style.display="block";
         }
-        function clear(){
+        function formclear(){
             cover.style.display="none";
             form.style.display="none";
         }

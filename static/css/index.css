@@ -48,12 +48,14 @@
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   z-index: 11;
-  padding: 10px;
+  padding: 20px;
   min-width: 300px;
-  background: var(--highlight_elem);
-  color: var(--white);
+  background: white;
+  color: #2979ff;
   border-radius: 10px;
   text-align: center;
+  -webkit-box-shadow: 20px 20px 20px 20px rgba(10, 10, 10, 0.5);
+          box-shadow: 20px 20px 20px 20px rgba(10, 10, 10, 0.5);
 }
 
 .player_form label {

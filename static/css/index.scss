@@ -38,12 +38,13 @@
     display: none;
     @include middle;
     z-index: 11;
-    padding:10px;
+    padding:20px;
     min-width: 300px;
-    background:var(--highlight_elem);
-    color:var(--white);
+    background:white;
+    color:#2979ff;
     border-radius: 10px;
     text-align: center;
+    box-shadow: 20px 20px 20px 20px rgba(10,10,10,0.5);
     label{
         font-size: 20px;
     }

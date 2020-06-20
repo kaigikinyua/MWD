@@ -91,6 +91,7 @@ input,button,.button{
     color:var(--white);
 }
 button:disabled{
+    opacity: 0.5;
     background:var(--dark);
     color:white;
 }
