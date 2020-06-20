@@ -95,4 +95,44 @@ input.input::-ms-input-placeholder {
 input.input::placeholder {
   color: var(--input_text);
 }
+
+div.contacts {
+  background: #2979ff;
+  color: white;
+}
+
+div.contacts div.container {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: transparent;
+  min-height: 70%;
+  min-width: 80%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+}
+
+div.contacts div.container h4 {
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-weight: lighter;
+  margin-bottom: 20px;
+}
+
+div.contacts div.container table {
+  color: white;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+div.contacts div.container table td {
+  padding: 10px;
+}
+
+div.contacts div.img {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 /*# sourceMappingURL=index.css.map */

@@ -66,3 +66,35 @@ input.input{
 input.input::placeholder{
     color:var(--input_text);
 }
+
+div.contacts{
+    background:#2979ff;
+    color:white;
+    div.container{
+        box-shadow: none;
+        background:transparent;
+        min-height: 70%;
+        min-width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        h4{
+            font-size: 22px;
+            letter-spacing: 1px;
+            font-weight: lighter;
+            margin-bottom:20px;
+        }
+        table{
+            color:white;
+            font-size: 20px;
+            letter-spacing: 2px;
+            td{
+                padding:10px;
+            }
+        }
+    }
+    div.img{
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
