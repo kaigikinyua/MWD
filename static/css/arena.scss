@@ -55,6 +55,11 @@ div.endGame{
     background:rgba(10,10,10,0.7);
     font-family: monospace;
     letter-spacing: 2px;
+    img.image{
+        position: relative;
+        width:100%;
+        height:200px;
+    }
 }
 
 div.chat{
@@ -68,7 +73,9 @@ div.chat{
     border-right:1px solid var(--text);
     div.handle{
         flex:1;
-        background:var(--input);
+        background:#2979ff;
+        padding:10px;
+        color:white;
     }
     div.messages{
         flex:5;
@@ -80,20 +87,36 @@ div.chat{
         text-align: center;
     }
 }
-input.input,button.send{
-    padding:10px 5px;
-    border:1px solid transparent;
-}
 input.input{
     background:var(--bg);
-    color:var(--text);
+    color:lightgray;
+    border-radius: 10px;
+    font-size: 18px;
+    color:black;
 }
 input.input::placeholder{
-    color:var(--text);
+    color:#263238;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    font-size: 18px;
 }
 button.send{
-    background:var(--highlight_elem);
+    background:transparent;
+    border:2px solid #2979ff;
+    color:#2979ff;
+    height:40px;
+    width:40px;
+    padding:5px;
+    font-size: 20px;
+    border-radius: 50%;
+    transition: 1s;
 }
+button.send:hover{
+    background:#2979ff;
+    border:2px solid #2979ff;
+    color:white;
+}
+
 div.messages{
     overflow-x:hidden;
     overflow-y:scroll;
@@ -137,6 +160,7 @@ div.messages{
     div.container{
         display: block;
         height:100vh;
+        box-shadow: none;
     }
     div.board{
         @include center_h;

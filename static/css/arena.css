@@ -74,6 +74,12 @@ div.endGame {
   letter-spacing: 2px;
 }
 
+div.endGame img.image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
 div.chat {
   position: relative;
   display: -webkit-box;
@@ -94,7 +100,9 @@ div.chat div.handle {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  background: var(--input);
+  background: #2979ff;
+  padding: 10px;
+  color: white;
 }
 
 div.chat div.messages {
@@ -112,34 +120,59 @@ div.chat div.input {
   text-align: center;
 }
 
-input.input, button.send {
-  padding: 10px 5px;
-  border: 1px solid transparent;
-}
-
 input.input {
   background: var(--bg);
-  color: var(--text);
+  color: lightgray;
+  border-radius: 10px;
+  font-size: 18px;
+  color: black;
 }
 
 input.input::-webkit-input-placeholder {
-  color: var(--text);
+  color: #263238;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  font-size: 18px;
 }
 
 input.input:-ms-input-placeholder {
-  color: var(--text);
+  color: #263238;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  font-size: 18px;
 }
 
 input.input::-ms-input-placeholder {
-  color: var(--text);
+  color: #263238;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  font-size: 18px;
 }
 
 input.input::placeholder {
-  color: var(--text);
+  color: #263238;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  font-size: 18px;
 }
 
 button.send {
-  background: var(--highlight_elem);
+  background: transparent;
+  border: 2px solid #2979ff;
+  color: #2979ff;
+  height: 40px;
+  width: 40px;
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 50%;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+button.send:hover {
+  background: #2979ff;
+  border: 2px solid #2979ff;
+  color: white;
 }
 
 div.messages {
@@ -189,6 +222,8 @@ div.messages .left {
   div.container {
     display: block;
     height: 100vh;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
   div.board {
     left: 50%;

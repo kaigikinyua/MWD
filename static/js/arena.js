@@ -90,21 +90,26 @@ function oponentTurn(){
 
 function endGame(message,mode){
     var message_board=document.createElement("div")
+    var image=document.createElement("img")
+    image.classList.add("image")
     message_board.classList.add("endGame")
     message_board.innerHTML=message
     var color="";
     switch (mode) {
         case 0:
             color="lightgreen"
+            image.src="/static/images/winner.svg"
             break;
         case 1:
             color="cyan"
+            image.src="/static/images/looser.svg"
             break;
         case 2:
             color="lightseagreen"
             break;
     }
     message_board.style.color=color
+    message_board.appendChild(image)
     board.appendChild(message_board)
 }
 
