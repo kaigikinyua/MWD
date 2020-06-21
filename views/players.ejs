@@ -21,7 +21,7 @@
     <div class="full players">
         <div class="container" id="players">
             <% for (var i=0; i < players.length; i++ ){%>
-                <div class="player" onclick="sendRequest('<%=players[i].id%>')">
+                <div class="player" onclick="sendRequest('<%=players[i].id%>','<%=players[i].name%>')">
                     <div class="avatar">
                         <div class="let"> <%=players[i].name[0]%> </div>
                     </div>

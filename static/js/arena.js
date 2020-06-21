@@ -22,23 +22,21 @@ function setUpBoard(){
     }
     socket.emit("joinarena",{"id":localStorage.getItem("matchid"),"userid":localStorage.getItem("id"),"username":localStorage.getItem("username")})
     if(localStorage.getItem("matchid")==localStorage.getItem("id")){
+        setUpData(localStorage.getItem("oponentname"),localStorage.getItem("oponentid"))
         myTurn()
-        //console.log(localStorage.getItem("matchid"))
-        //console.log(localStorage.getItem("id"))
     }else{
         oponentTurn()
+        setUpData(localStorage.getItem("oponentname"),localStorage.getItem("oponentid"))
     }
 }
 
 function setUpData(oponentname,oponentid){
-    localStorage.setItem("oponentname",oponentname)
-    localStorage.setItem("oponentid",oponentid)
     var oponent_name=document.getElementById("oponentname")
     var username_dom=document.getElementById("username")
-
-    oponent_name.innerHTML=localStorage.getItem("oponentname")
+    var handle_name=document.getElementById("handle")
+    handle_name.innerHTML=oponentname
+    oponent_name.innerHTML=oponentname
     username_dom.innerHTML=localStorage.getItem("username")
-    console.log("setting up arena data")
 }
 
 
@@ -68,6 +66,7 @@ socket.on("arenadata",(data)=>{
     //localStorage.setItem("oponentname",data.oponentname)
     //localStorage.setItem("oponentid",data.oponentid)
     setUpData(data.oponentname,data.oponentid)
+    console.log(data)
 })
 
 function myTurn(){

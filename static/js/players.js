@@ -19,22 +19,31 @@ function initChannel(){
 }
 
 
-function sendRequest(playerID){
+function sendRequest(playerID,playername){
+    console.log(playername)
+    localStorage.setItem("oponentname",playername)
+    localStorage.setItem("oponentid",playerID)
     var username=localStorage.getItem('username')
     socket.emit('playaganist',{"username":username,"playerID":localStorage.getItem("id"),"roomID":playerID})
 }
 function acceptRequest(){
+    
     socket.emit("acceptchallange",{"id":localStorage.getItem("id"),"username":localStorage.getItem("name"),"c_id":challanger_id})
+
 }
 
 
 
 socket.on("challange",(data)=>{
+    localStorage.setItem("oponentname",data.username)
+    localStorage.setItem("oponentid",data.c_id)
+
     notification()
     var message=document.getElementById("message")
     message.innerHTML=data.message
     challanger_id=data.c_id
 })
+
 socket.on("startmatch",(data)=>{
     if(data.matchid==localStorage.getItem("id")){
         localStorage.setItem("pawn","x")
@@ -54,7 +63,7 @@ socket.on("currentplayers",(data)=>{
     data.players.forEach(player => {
         var playerTemplate=document.createElement("div")
         playerTemplate.addEventListener('click',(e)=>{
-            sendRequest(player.id)
+            sendRequest(player.id,player.name)
         })
         playerTemplate.classList.add("player")
         var avatar=document.createElement("div")
