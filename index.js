@@ -19,8 +19,8 @@ var server=app.listen(port,()=>{
 var io=socket(server)
 
 //var players=["one","two","three"]
-var players=[{"name":"Player one","id":10,"state":"free"}]
-
+//var players=[{"name":"Player one","id":10,"state":"free"}]
+var players=[]
 var rooms=[]
 var socketRooms=[]
 
