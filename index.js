@@ -8,9 +8,13 @@ app.use('/static',express.static('./static'))
 //for html app.use(express.urlencoded())
 app.use(express.json())
 app.set('view engine','ejs')
-var server=app.listen(4000,()=>{
-	console.log("M.W.D listening on port 4000")
+
+const port=process.env.PORT || 4000
+var server=app.listen(port,()=>{
+	console.log("M.W.D listening on port "+port)
 })
+
+
 //soket.io server
 var io=socket(server)
 

@@ -1,4 +1,4 @@
-const baseURL="http://localhost:4000/"
+const baseURL="https://antonytictac.herokuapp.com/"
 
 var socket=io.connect(baseURL)
 
