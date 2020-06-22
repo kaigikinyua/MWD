@@ -71,7 +71,7 @@ function generateUniqPlayerID(){
 
 io.on('connection',(socket)=>{
 	//update the number on the index page
-	socket.on("disconnet",()=>{
+	socket.on("disconnected",()=>{
 		socket.emit("newnumbers",players.length-1)
 	})
 
