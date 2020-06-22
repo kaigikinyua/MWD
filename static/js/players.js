@@ -55,7 +55,7 @@ socket.on("startmatch",(data)=>{
     }
     localStorage.setItem("matchid",data.matchid)
     setTimeout(()=>{
-        window.location.replace("http://localhost:4000/arena")
+        window.location.replace(baseURL+"/arena")
     },3000)
 })
 
