@@ -1,4 +1,6 @@
-var socket=io.connect("http://localhost:4000/")
+const baseURL="http://localhost:4000/"
+
+var socket=io.connect(baseURL)
 
 //board-data
 const board=document.getElementById('board')
@@ -253,7 +255,7 @@ function sendMessage(){
         var newMessage=document.createElement("div")
         newMessage.classList.add("message")
         newMessage.classList.add("m_right")
-        newMessage.innerHTML="<div class='text_bubble right'>"+message+"</div>"
+        newMessage.innerHTML="<p class='text_bubble right'>"+message+"</p>"
         messages.appendChild(newMessage)
         message.innerHTML=""
     }
@@ -263,7 +265,7 @@ socket.on("message",(data)=>{
     var newMessage=document.createElement("div")
     newMessage.classList.add("message")
     newMessage.classList.add("m_left")
-    newMessage.innerHTML="<div class='text_bubble left'>"+data.message+"</div>"
+    newMessage.innerHTML="<p class='text_bubble left'>"+data.message+"</p>"
     messages.appendChild(newMessage)
     var status=document.getElementById("status")
     status.innerHTML=""

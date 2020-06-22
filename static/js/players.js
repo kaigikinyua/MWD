@@ -1,5 +1,8 @@
 //import io from "./socket.js";
-var socket=io.connect("http://localhost:4000/")
+const baseURL="http://localhost:4000";
+
+
+var socket=io.connect(baseURL)
 var challanger_id=""
 
 window.onload=function(){

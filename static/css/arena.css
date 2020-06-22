@@ -187,35 +187,41 @@ div.messages div.message {
   margin-bottom: 10px;
 }
 
-div.messages div.text_bubble {
+div.messages div.message p.text_bubble {
   position: relative;
   padding: 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  line-height: 20px;
+  display: inline-block;
 }
 
 div.messages .m_right {
+  margin-left: 20%;
   text-align: right;
+}
+
+div.messages .m_right p.text_bubble {
+  background: var(--blue1);
+  border-bottom-left-radius: 10px;
 }
 
 div.messages .m_left {
-  text-align: left;
+  margin-right: 20%;
+}
+
+div.messages .m_left p.text_bubble {
+  background: var(--blue2);
+  border-bottom-right-radius: 10px;
 }
 
 div.messages .right {
-  background: var(--blue1);
+  position: relative;
   color: white;
-  border-bottom-left-radius: 10px;
-  text-align: right;
-  display: inline;
 }
 
 div.messages .left {
-  background: var(--blue2);
   color: white;
-  border-bottom-right-radius: 10px;
-  text-align: left;
-  display: inline;
 }
 
 @media only screen and (max-width: 800px) {
