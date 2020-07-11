@@ -1,3 +1,4 @@
+![Screenshot](static/images/icon_svg.png)
 # MWD
 ## Online Tic Tac Toe Multiplayer
 As the name suggests this is an online multiplayer game where in order to play all you need is:
