@@ -8,7 +8,7 @@ As the name suggests this is an online multiplayer game where in order to play a
 * Internet connection
 * Visit the site at https://antonytictac.herokuapp.com/
 
-Steps for playing the game
+# Steps for playing the game
 
 * Click on play
 * Enter the your player name
@@ -21,4 +21,20 @@ Steps for playing the game
 * Once you are in the arena if your 'boxes' are blue you it is your turn but if they are gray it is the other players turn
 
 
+# Developer guide
+## Development Environment
+    * Node
+        * Express
+        * Socket.io
+        * ejs
+    * *Other dependencies are in the package.json*
+## Code Structure
+    *index.js
+        * Entry point for the server
+    *static/
+        * static files directory
+        */js
+            * different modules for handling events occuring on the user's side(ie notifications,sending messages etc)
+    * views
+        * different views to be served
 
